@@ -1,0 +1,340 @@
+<script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+<style>
+        .content{
+            top:-18px;
+        }
+    </style>
+!-- 右 -->
+<div class="content"> 
+    <div class="header">
+        <h1 class="page-title">楼盘编辑</h1>
+    </div>
+    <input type="hidden" name="id" id="goods_type_id" value="{$list.id}">
+    <!-- edit form -->
+    <form action="{:url('update',['id'=>$list.id])}" method="post" id="tab" enctype="multipart/form-data">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#basic" data-toggle="tab">基本信息</a></li>
+            <li role="presentation"><a href="#desc" data-toggle="tab">楼盘描述</a></li>
+            <li role="presentation"><a href="#attr" data-toggle="tab">楼盘属性</a></li>
+            
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="basic">
+                <div class="well">
+                    <label>楼盘名称：</label>
+                    <input type="text" name="building_name" value="{$list.building_name}" class="input-xlarge">
+                    <label>启用状态：</label>
+                    <select name="type" id="">
+                        {foreach $type as $v}
+                        <option value="{$v}" {if $v==$list.type}selected{/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                    <label>销售状态：</label>
+                    <select name="building_xiaoshou" id="">
+                        {foreach $xiaoshou as $v}
+                        <option value="{$v}" {if $v==$list.building_xiaoshou}selected{/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                    <label>价格等级：</label>
+                    <select name="building_jiage" id="">
+                        {foreach $jiage as $v}
+                        <option value="{$v}" {if $v==$list.building_jiage}selected{/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                    <label>价格等级(总价)：</label>
+                        <select name="zongjia" id="">
+                            {foreach $zongjia as $v}
+                            <option value="{$v}" {if $v==$list.zongjia}selected{/if}>{$v}</option>
+                            {/foreach}
+                        </select>
+                    <label>楼盘价格：</label>
+                    <select name="building_dengji" id="">
+                        {foreach $dengji as $v}
+                        <option value="{$v}" {if $v==$list.building_dengji}selected{/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                    <label>装修情况：</label>
+                    <select name="building_zhuangxiu" id="">
+                        {foreach $zhuangxiu as $v}
+                        <option value="{$v}" {if $v==$list.building_zhuangxiu}selected{/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                    <label>预售证：</label>
+                    <input type="text" name="yushou" value="{$list.yushou}" class="input-xlarge">
+                    <label>楼盘地址：</label>
+                    <input type="text" name="building_address" value="{$list.building_address}" class="input-xlarge">
+                    <label>开发商：</label>
+                        <input type="text" name="kaifa" value="{$list.kaifa}" class="input-xlarge">
+                        <label>物业公司：</label>
+                        <input type="text" name="wuye" value="{$list.wuye}" class="input-xlarge">
+                        <label>售楼处地址：</label>
+                        <input type="text" name="shoulou" value="{$list.shoulou}" class="input-xlarge">
+                    <label>录入人员：</label>
+                    <input type="text" name="building_people" value="{$list.building_people}" class="input-xlarge">
+                    <label>楼盘户数：</label>
+                        <input type="text" name="hushu" value="{$list.hushu}" class="input-xlarge">
+                        <label>规划面积：</label>
+                        <input type="text" name="guiji" value="{$list.guiji}" class="input-xlarge">
+                        <label>建筑面积：</label>
+                        <input type="text" name="jianji" value="{$list.jianji}" class="input-xlarge">
+                        <label>家庭面积：</label>
+                        <input type="text" name="humianji" value="{$list.humianji}" class="input-xlarge">
+                        <label>单价：(元)</label>
+                        <input type="text" name="danjia" value="{$list.danjia}" class="input-xlarge">
+                        <label>总价：(万)</label>
+                        <input type="text" name="zong" value="{$list.zong}" class="input-xlarge">
+                        <label>相似楼盘：(编号用,隔开)</label>
+                        <input type="text" name="xiangsi" value="{$list.xiangsi}" class="input-xlarge">
+                        <label>开盘时间：</label>
+                        <input name="kaitime" type="date" value="{$list.kaitime}"/>
+                        <label>交房时间：</label>
+                        <input name="jiaotime" type="date" value="{$list.jiaotime}"/>
+                        <label>容积率：</label>
+                        <input type="text" name="rongji" value="{$list.rongji}" class="input-xlarge">
+                        <label>绿化率：</label>
+                        <input type="text" name="lvhua" value="{$list.lvhua}" class="input-xlarge">
+                        <label>产权年限：</label>
+                        <input type="text" name="channian" value="{$list.channian}" class="input-xlarge">
+                        <label>车位数：</label>
+                        <input type="text" name="chewei" value="{$list.chewei}" class="input-xlarge">
+
+                        <label>物业费：</label>
+                        <input type="text" name="wufei" value="{$list.wufei}" class="input-xlarge">
+                        <label>层高：</label>
+                        <input type="text" name="cenggao" value="{$list.cenggao}" class="input-xlarge">
+                        <label>mapx：</label>
+                        <input type="text" name="mapx" value="{$list.mapx}" class="input-xlarge">
+                        <a href="https://lbs.amap.com/console/show/picker" target="_blank">点击这里</a>
+
+                        <label>mapy：</label>
+                        <input type="text" name="mapy" value="{$list.mapy}" class="input-xlarge">
+                    <label>有楼盘资料：</label>
+                    <select name="building_ziliao" id="">
+                        {foreach $ziliao as $v}
+                        <option value="{$v}" {if $v==$list.building_ziliao}selected{/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                    <label>是否上热搜：(不能超过4个)</label>
+                    <select name="building_tejia" id="">
+                        {foreach $tejia as $v}
+                        <option value="{$v}" {if $v==$list.building_tejia}selected{/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                    <label>楼盘主图：</label>
+                    <input type="file" name="building_logo" value="" class="input-xlarge">
+                    
+                        </div>
+                </div>
+                 <div class="tab-pane fade in" id="desc">
+                            <div class="well">
+                                <label>楼盘简介：</label>
+                                <textarea id="editor" name="introduce" style="width:800px;" class="input-xlarge">{$list.introduce}</textarea>
+                            </div>
+                            <div class="well">
+                                <label>活动优惠：</label>
+                                <textarea name="preferential" style="width:800px;">{$list.preferential}</textarea>
+                            </div>
+                            <div class="well">
+                                <label>公交路线：(到楼盘)</label>
+                                <textarea name="traffic" style="width:800px;">{$list.traffic}</textarea>
+                            </div>
+                            <div class="well">
+                                <label>开发商介绍：(1)</label>
+                                <textarea name="kone_intro" style="width:800px;">{$list.kone_intro}</textarea>
+                            </div>
+                            <div class="well">
+                                <label>开发商介绍：(2)</label>
+                                <textarea name="ktwo_intro" style="width:800px;">{$list.ktwo_intro}</textarea>
+                            </div>
+                            <div class="well">
+                                <label>优势介绍：(1)</label>
+                                <textarea name="you_one" style="width:800px;">{$list.you_one}</textarea>
+                            </div>
+                            <div class="well">
+                                <label>优势介绍：(2)</label>
+                                <textarea name="you_two" style="width:800px;">{$list.you_two}</textarea>
+                            </div>
+                            <div class="well">
+                                <label>优势介绍：(3)</label>
+                                <textarea name="you_thre" style="width:800px;">{$list.you_thre}</textarea>
+                            </div>
+                            <div class="well">
+                                <label>精品房源特色：</label>
+                                <textarea name="fytese" style="width:800px;">{$list.fytese}</textarea>
+                            </div>
+                            <div class="well">
+                                <label>成熟商业体系：</label>
+                                <textarea name="sytixi" style="width:800px;">{$list.sytixi}</textarea>
+                            </div>
+                            <div class="well">
+                                <label>高端物业管理：</label>
+                                <textarea name="wlguanli" style="width:800px;">{$list.wlguanli}</textarea>
+                            </div>
+                </div>
+                <div class="tab-pane fade in" id="attr">
+                        <div class="well">
+                            <label>地铁：</label>
+                            {foreach $ditie as $v}
+                            
+                            <input type="checkbox" name="building_ditie[]" value="{$v}"{foreach $l_ditie as $l}
+                                        {if $v==$l}checked{/if}{/foreach}>{$v}
+                                        
+                                        {/foreach}
+                            
+                            <label>户型：</label>
+                            {foreach $huxing as $v}
+                            
+                            <input type="checkbox" name="building_huxing[]" value="{$v}"{foreach $l_huxing as $l}
+                                        {if $v==$l}checked{/if}{/foreach}>{$v}
+                                        
+                                        {/foreach}
+                            <label>建筑形式：</label>
+                            {foreach $xingshi as $v}
+                            
+                            <input type="checkbox" name="building_xingshi[]" value="{$v}"{foreach $l_xingshi as $l}
+                                        {if $v==$l}checked{/if}{/foreach}>{$v}
+                                        
+                                        {/foreach}
+                            <label>楼盘特色：</label>
+                            {foreach $tese as $v}
+                            
+                            <input type="checkbox" name="building_tese[]" value="{$v}"{foreach $l_tese as $l}
+                                        {if $v==$l}checked{/if}{/foreach}>{$v}
+                                        
+                                        {/foreach}
+                        </div>
+                        <div class="well">
+                            <label>楼盘分区：</label>
+                            <select name="" class="input-xlarge" id="cate_one">
+                                <option value="">请选择城市</option>
+                                {foreach $lists as $v}
+                                <option value="{$v.id}" {if $v.id==$once.id} selected {/if}>{$v.area_name}</option>
+                                {/foreach}
+                            </select>
+                            <select name="cate_id" class="input-xlarge" id="cate_two">
+                                {foreach $seconds as $s}
+                                <option value="{$s.id}" {if $s.id==$second.id} selected {/if}>{$s.area_name}</option>
+                                {/foreach}
+                            </select>
+                            <label>关键字：</label>
+                            <input type="text" name="keys" value="{$list.keys}" class="input-xlarge" style="width:1200px;">   
+                            <label>400转接：</label>
+                            <input type="text" name="transfer" value="{$list.transfer}" class="input-xlarge">
+                        </div>
+                </div>
+                    <button class="btn btn-primary" type="submit">保存</button>
+                </div>
+    </form>
+
+    <script type="text/javascript">
+        $(function () {
+            // 实例化编辑器
+            UE.getEditor('editor');
+            UE.getEditor('editor1');
+            UE.getEditor('editor2');
+            UE.getEditor('editor3');
+            $('#cate_one').change(function () {
+                $('#cate_two').html('<option value="">请选择区域</option>');
+                $('#cate_three').html('<option value="">请选择板块</option>');
+                var id = $(this).val();
+                if (id == '') {
+                    return;
+                }
+                var data = {
+                    'id': id
+                };
+                $.ajax({
+                    'url': '{:url("admin/category/getSubCate")}',
+                    'type': 'post',
+                    'data': data,
+                    'dataType': 'json',
+                    'success': function (res) {
+                        if (res.data != 10000) {
+                            var html = '<option value="">请选择区域</option>';
+                            var data = res.data;
+                            $.each(data, function (k, v) {
+                                html += '<option value="' + v.id + '">' + v.area_name + '</option>';
+                            })
+                            $('#cate_two').html(html);
+                        }
+
+                    }
+                })
+            });
+            
+            $('.delete_pics').click(function () {
+                var id = $(this).attr('pics_id');
+                var data = {
+                    'id': id
+                }
+                var that = $(this);
+                $.ajax({
+                    'url': "{:url('admin/goods/delpics')}",
+                    'type': 'post',
+                    'data': data,
+                    'dataType': 'json',
+                    'success': function (res) {
+                        if (res.code == 10000) {
+                            alert(res.msg);
+                        } else {
+                            that.parent().remove();
+                        }
+                    }
+                })
+            })
+            $('.add').click(function () {
+                var add_div = '<div>[<a href="javascript:void(0);" class="sub">-</a>]楼盘图片：<input type="file" name="goods_pics[]" value="" class="input-xlarge"></div>';
+                $(this).parent().parent().append(add_div);
+            });
+            $('.sub').live('click', function () {
+                $(this).parent().remove();
+            });
+            // 保存原始的属性信息,用于后续处理
+            var html = $('#attrs').val();
+            // 楼盘类型的下拉列表
+            $('select[name=type_id]').change(function () {
+                $('#attrs').html();
+                var id = $(this).val();
+                if (id == '') {
+                    return;
+                };
+                // {}中间不能有空格,否则各种bug
+                if (id == $('#goods_type_id').val()) {
+                    $('#attrs').html(html);
+                }
+                var data = { 'id': id };
+                $.ajax({
+                    'url': "{:url('admin/attribute/getattr')}",
+                    'type': 'post',
+                    'data': data,
+                    'dataType': 'json',
+                    'success': function (res) {
+                        if (res.code != 10000) {
+                            alert(res.msg); return;
+                        }
+                        // 遍历结果数组,拼接html展示属性信息
+                        var str = '';
+                        $.each(res.data, function (i, v) {
+                            str += '<label>' + v.attr_name + ':</label>';
+                            if (v.attr_input_type == '0') {
+                                str += '<input type="text" name="attr_value[' + v.id + '][]" value="">';
+                            } else if (v.attr_input_type == '1') {
+                                str += '<select name="attr_value[' + v.id + '][]">';
+                                $.each(v.attr_values, function (index, value) {
+                                    str += '<option  value="' + value + '">' + value + '</option>';
+                                })
+                                str += '</select>';
+                            } else {
+                                $.each(v.attr_values, function (index, value) {
+                                    str += '<input type="checkbox" name="attr_value[' + v.id + '][]" value="' + value + '">' + value;
+                                })
+                            }
+                        })
+                        $('#attrs').html(str);
+                    }
+                })
+            })
+        });
+    </script>

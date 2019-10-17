@@ -1,0 +1,99 @@
+<style type="text/css">
+    .pagination li {
+        list-style: none;
+        float: left;
+        margin-left: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        height: 26px;
+        width: 26px;
+        line-height: 26px;
+        cursor: pointer;
+        color: #5a98de;
+        text-align: center;
+    }
+
+    .pagination li a {
+        width: 100%;
+        height: 100%;
+        color: #5a98de;
+        padding: 0;
+        line-height: inherit;
+        border: none;
+    }
+
+    .pagination li a:hover {
+        background-color: white;
+    }
+
+    .pagination li.active {
+        background-color: #5a98de;
+        color: white;
+    }
+
+    .pagination li.disabled {
+        background-color: white;
+        color: gray;
+    }
+</style>
+
+
+<!-- 右 -->
+<div class="content">
+    <div class="header">
+        <h1 class="page-title">资讯列表</h1>
+    </div>
+
+    <div class="well">
+        <!-- search button -->
+        <form action="{:url('admin/project/index')}" method="get" class="form-search">
+            <div class="row-fluid" style="text-align: left;">
+                <div class="pull-left span4 unstyled">
+                    <p> 资讯名称：<input class="input-medium" name="name" type="text"></p>
+                </div>
+            </div>
+            <button type="submit" class="btn">查找</button>
+            <a class="btn btn-primary" href="{:url('create')}">新增</a>
+        </form>
+    </div>
+    <div class="well">
+        <!-- table -->
+        <table class="table table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>资讯名称</th>
+                    <th>录入人员</th>
+                    <th>添加时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {foreach $list as $v}
+                <tr class="success">
+                    <td>{$v.id}</td>
+                    <td>{$v.title}</td>
+                    <td>{$v.people}</td>
+                    <td>{$v.create_time}</td>
+                    <td>
+                        <a href="{:url('admin/project/edit',['id'=>$v.id])}"> 编辑 </a>
+                        <a href="javascript:void(0);" onclick="if(confirm('确认删除？')) location.href='{:url(\'admin/project/delete\',[\'id\'=>$v.id])}'">
+                            删除 </a>
+                    </td>
+                </tr>
+                {/foreach}
+            </tbody>
+        </table>
+        <!-- pagination -->
+        <div class="pagination">
+            <!-- <ul>
+                <li><a href="#">Prev</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">Next</a></li>
+            </ul> -->
+            {$list->render()}
+        </div>
+    </div>

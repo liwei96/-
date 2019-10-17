@@ -1,0 +1,238 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"D:\phpstudy_pro\WWW\tp3\public/../application/home\view\mine\hufen.html";i:1566809352;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="/static/home/csss/common/common.css">
+    <link rel="stylesheet" href="/static/home/csss/hufen.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1350331_95tz9eyhqij.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1329849_7za7eo8yzvj.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_910507_hzufm6hpwxd.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1350331_tr69ulhj2bk.css">
+    <link rel="stylesheet" href="/static/home/csss/common/successmo.css">
+    <title>户型分析</title>
+    <script type="text/javascript">
+        var bw = (document.documentElement.clientWidth/7.5)+"px";
+        var htmlTag = document.getElementsByTagName("html")[0]; 
+        htmlTag.style.fontSize=bw; 
+    </script>
+</head>
+<body>
+          <!--头部-->
+  <div class="title bg">
+        <h1><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565777367881&di=09f60c95761a4d993622fb57ccfb91fa&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201510%2F29%2F20151029140701_LXET5.jpeg" alt=""></h1>
+        <span class="iconfont icon-caidan" id="list"></span>
+</div>
+
+<header class="bg">
+        <ul>
+                <li class="active"> <a href="./index.html" >首页</a></li>
+                <li> <a href="./detail.html" >项目介绍</a></li>
+                <li>  <a href="./lou_dong.html">楼盘动态</a></li>
+                <li> <a href="./louphoto.html">楼盘图册</a></li>
+                <li><a href="./concat.html">联系我们</a></li>
+          </ul>
+</header>
+<div class="more ">
+        <span class="iconfont iconjiantouzuo"></span>
+        <h2>更多评论</h2>
+</div>
+ <!--楼盘图片-->
+ <div class="lou-pic">
+        <img src="<?php echo $data['h_big']; ?>" alt="" class="hu-img">
+        <div class="hu-box">
+            <div class="hu-top">
+                    <h4><?php echo $data['content']; ?><span>在售</span></h4>
+                    <ul>
+                        <div class="list-1">
+                                <li>单价  <span><?php echo $building['danjia']; ?>元/m²起</span></li>
+                                <li>总价 <span> <?php echo $data['jia']; ?>万</span></li>
+                        </div>
+                        <div class="list-2">
+                                <li>建面   <span><?php echo $data['mian']; ?>m²</span></li>
+                                <li>层高   <span> <?php echo $building['cenggao']; ?>米</span></li>
+                        </div>
+                    </ul>
+            </div>
+            <div class="zixun">
+                    <h4>值班置业顾问</h4>
+                    <div class="text-box">
+                         <div class="zi-pic"><img src="https://www.jy1980.com/static/home/imgs/people.png" alt=""></div>
+                         <div class="zi-text">
+                             <span class="name-n">倪丽丽</span>
+                             <p>评分5.0分</p>
+                             <i>向她咨询更多详细户型信息</i>
+                         </div>
+                         <input type="button" value="我要咨询" class="zi-btn">
+                    </div>
+           </div>
+
+        </div>
+
+ </div>
+ <!--户型分析-->
+ <div class="hfen">
+       <h2>户型分析</h2>
+        <ul>
+            <li>  <?php echo $data['fen']; ?>。 </li>
+            
+        </ul>
+ </div>
+ <!--底部-->
+    <div class="dibu">
+        <div class="shoutel">
+             <span class="iconfont icon-dianhua-1"></span>
+             <i>售楼电话</i>
+        </div>
+        <div class="yuyue yu-fang">
+            <span class="iconfont icon-naozhong"></span>
+            <i >预约看房</i>
+        </div>
+    </div>
+
+    <!--预约看房-->
+<div class="yufang fang">
+    <div class="yubox">
+         <div class="yu-fang-ok">
+                 <p>预约看房</p>
+                 <img src="/static/home/img/del.png" alt="" id="close-yu">
+         </div>
+         <div class="yures">
+             <h3>世茂泰禾·中央广场</h3>
+             <p>一键预约看房免费小车上门接送</p>
+             <form action="">
+                 <div class="inputbox one">
+                        <input type="text" placeholder="请输入手机号">
+                 </div>
+                 <div class="inputbox two"> 
+                        <input type="text" placeholder="请输入姓名">
+                 </div>
+                    <input type="button" value="确定" class="yusub">
+             </form>
+         </div>
+ </div>
+</div>
+
+    <!--我要咨询-->
+    <div class="yufang zixunbox">
+            <div class="yubox">
+                 <div class="yu-fang-ok">
+                         <p>我要咨询</p>
+                         <img src="/static/home/img/del.png" alt="" class="zi-close">
+                 </div>
+                 <div class="yures">
+                     <h3>世茂泰禾·中央广场</h3>
+                     <p>向她咨询更多户型信息</p>
+                     <form action="">
+                         <div class="inputbox myzitel">
+                                <input type="text" placeholder="请输入手机号">
+                         </div>
+                         <div class="inputbox myziname">
+                                <input type="text" placeholder="请输入姓名">
+                         </div>
+                            <input type="button" value="确定" class="yusub">
+                     </form>
+                 </div>
+         </div>
+        </div>
+<!--发表评价成功模态框-->
+<div class="faping-ok">
+        <div class="faokbox">
+             <div class="ping-ok-tit">
+                     <img src="/static/home/img/del.png" alt="" id="close-pok">
+             </div>
+             <div class="pingres">
+                 <img src="/static/home/img/ok.png" alt="">
+                 <h4>提交成功</h4>
+                 <input type="button" value="确定">
+             </div>
+     </div>
+            
+</div>
+<script src="/static/home/jss/jquery.min.js"></script>
+<script>
+    //预约看房
+     $('.yu-fang').click(function(){
+            $('.fang').css({
+                  display:'block'
+            })
+     })
+    $('#close-yu').click(function(){
+        $('.fang').css({
+                  display:'none'
+            })
+    })
+ //我要咨询
+ $('.zi-btn').click(function(){
+            $('.zixunbox').css({
+                  display:'block'
+            })
+     })
+    $('.zi-close').click(function(){
+        $('.zixunbox').css({
+                  display:'none'
+            })
+    })
+
+    // 后退
+    $('.iconjiantouzuo').on('click',function(){
+        window.history.go(-1);
+    })
+
+ //预约看房获取手机号
+ $('.one').children().change(function(){
+        console.log($(this).val());
+        var value=$(this).val();
+        if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(value))){
+            // console.log( $('.one').children().attr('placeholder'));
+            $('.one').children().val('');
+            $('.one').children().attr('placeholder','手机号码格式错误，请重新输入');
+            return false;
+     }
+    })
+    console.log($('.one').parent().parent().find('h3').text());
+    console.log($('.one').parent().parent().prev().find('p').text());
+    $('.two').children().change(function(){
+        console.log($(this).val());
+    })
+
+ //我要咨询获取手机号
+ $('.myzitel').children().change(function(){
+        console.log($(this).val());
+        var value=$(this).val();
+        if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(value))){
+            // console.log( $('.myzitel').children().attr('placeholder'));
+            $('.myzitel').children().val('');
+            $('.myzitel').children().attr('placeholder','手机号码格式错误，请重新输入');
+            return false;
+     }
+    })
+    console.log($('.myzitel').parent().parent().find('h3').text());
+    console.log($('.myzitel').parent().parent().prev().find('p').text());
+    $('.myziname').children().change(function(){
+        console.log($(this).val());
+    })
+
+//菜单显示隐藏
+window.isshow=1;
+$('#list').click(function(){
+      
+      if( window.isshow==1){
+        $('header').slideUp("fast");
+        window.isshow=2;
+        $('.more').css({
+             marginTop:'0.8rem'
+        })
+      }else if( window.isshow==2){
+        $('header').slideDown("fast");
+        window.isshow=1;
+        $('.more').css({
+             marginTop:'1.6rem'
+        })
+      }
+  }) 
+
+</script>
+</body>
+</html>

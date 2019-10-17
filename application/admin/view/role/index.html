@@ -1,0 +1,78 @@
+<style type="text/css">
+    .pagination li {
+        list-style: none;
+        float: left;
+        margin-left: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        height: 26px;
+        width: 26px;
+        line-height: 26px;
+        cursor: pointer;
+        color: #5a98de;
+        text-align: center;
+    }
+
+    .pagination li a {
+        width: 100%;
+        height: 100%;
+        color: #5a98de;
+        padding: 0;
+        line-height: inherit;
+        border: none;
+    }
+
+    .pagination li a:hover {
+        background-color: white;
+    }
+
+    .pagination li.active {
+        background-color: #5a98de;
+        color: white;
+    }
+
+    .pagination li.disabled {
+        background-color: white;
+        color: gray;
+    }
+</style>
+<!-- 右 -->
+<div class="content">
+    <div class="header">
+        <h1 class="page-title">角色列表</h1>
+    </div>
+
+    <div class="well">
+        <a class="btn btn-primary" href="{:url('admin/role/create')}">新增</a>
+        <!-- table -->
+        <table class="table table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>用户组</th>
+                    <th>权限ids</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {foreach $list as $v}
+                <tr class="success">
+                    <td>{$v.id}</td>
+                    <td>{$v.role_name}</td>
+                    <td>{$v.role_auth_ids}</td>
+                    <td>
+                        <a href="{:url('setauth',['id'=>$v.id])}"> 分派权限 </a>
+                        <a href="{:url('edit',['id'=>$v.id])}"> 编辑 </a>
+                        <a href="javascript:void(0);" onclick="if(confirm('确认删除？')) location.href='{:url(\'delete\',[\'id\'=>$v.id])}'">
+                            删除 </a>
+                    </td>
+                </tr>
+                {/foreach}
+            </tbody>
+        </table>
+        <!-- pagination -->
+        <div class="pagination">
+            
+            {$list->render()}
+        </div>
+    </div>

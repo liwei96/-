@@ -1,0 +1,33 @@
+
+<!-- 右 -->
+<div class="content">
+    <div class="header">
+        <h1 class="page-title">新增</h1>
+    </div>
+
+    <!-- add form --> 
+    <form action="{:url('save')}" method="post" id="tab" enctype="multipart/form-data">
+       
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="basic">
+                <div class="well">
+                        <label>区域：</label>
+                        <input type="text" name="area" value="" class="input-xlarge">
+                        <label>楼盘：</label>
+                        <input type="text" name="loupan" value="" class="input-xlarge">
+                        <label>时间：</label>
+                        <input name="time" type="text" value=""/>
+                        <label>分类：</label>
+                        <select name="type" id="">
+                            <option value="登记" >登记</option>
+                            <option value="摇号" >摇号</option>
+                        </select> 
+                       
+                </div>
+            </div>
+           
+            <button class="btn btn-primary" type="submit">保存</button>
+        </div>
+    </form>
+
+    

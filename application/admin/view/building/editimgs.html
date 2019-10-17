@@ -1,0 +1,226 @@
+<script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+<style>
+    .content{
+        top:-18px;
+    }
+</style>
+!-- 右 -->
+<div class="content"> 
+    <div class="header">
+        <h1 class="page-title">相册编辑</h1>
+    </div>
+    <!-- edit form -->
+    <form action="{:url('saveimgs')}" method="post" id="tab" enctype="multipart/form-data">
+        <input type="hidden" name="bid" value="{$id}">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#basic" data-toggle="tab">效果图</a></li>
+            <li role="presentation"><a href="#desc" data-toggle="tab">实景图</a></li>
+            <li role="presentation"><a href="#attr" data-toggle="tab">样板图</a></li>
+            <li role="presentation"><a href="#pei" data-toggle="tab">配套图</a></li>
+            <li role="presentation"><a href="#jiao" data-toggle="tab">交通图</a></li>
+            <li role="presentation"><a href="#hu" data-toggle="tab">户型图</a></li>
+            <li role="presentation"><a href="#zhu" data-toggle="tab">主页图片</a></li>
+            <li role="presentation"><a href="#tu" data-toggle="tab">项目介绍图片</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="basic">
+                <div class="well">
+                    <div>[<a href="javascript:void(0);" class="addx">+</a>]图片：<input type="file"
+                            name="x_pics[]" value="" class="input-xlarge"></div>
+                </div>
+                <div class="well">
+                    {foreach $x_imgs as $x}
+                    {if $x.x_small}
+                    <div style="margin: 10px 0;width:100%"><img src="{$x.x_small}" alt=""
+                            style="width:150px"><button pics_id="{$x.id}" pics_type="x" class="btn-danger delete_pics"
+                            style="float:right" type="button">删除</button></div>
+                            {/if}
+                    {/foreach}
+                </div>
+                </div>
+                 <div class="tab-pane fade in" id="desc">
+                    <div class="well">
+                        <div>[<a href="javascript:void(0);" class="adds">+</a>]图片：<input type="file"
+                                name="s_pics[]" value="" class="input-xlarge"></div>
+                    </div>
+                    <div class="well">
+                        {foreach $s_imgs as $s}
+                        {if $s.s_small}
+                        <div style="margin: 10px 0;width:100%"><img src="{$s.s_small}" alt=""
+                                style="width:150px"><button pics_id="{$s.id}" pics_type="s" class="btn-danger delete_pics"
+                                style="float:right" type="button">删除</button></div>
+                                {/if}
+                        {/foreach}
+                    </div>
+                </div>
+                <div class="tab-pane fade in" id="attr">
+                    <div class="well">
+                        <div>[<a href="javascript:void(0);" class="addy">+</a>]图片：<input type="file"
+                                name="y_pics[]" value="" class="input-xlarge"></div>
+                    </div>
+                    <div class="well">
+                        {foreach $y_imgs as $y}
+                        {if $y.y_small}
+                        <div style="margin: 10px 0;width:100%"><img src="{$y.y_small}" alt=""
+                                style="width:150px"><button pics_id="{$y.id}" pics_type="y" class="btn-danger delete_pics"
+                                style="float:right" type="button">删除</button></div>
+                                {/if}
+                        {/foreach}
+                    </div>
+                        
+                </div>
+                <div class="tab-pane fade in" id="pei">
+                        <div class="well">
+                                <div>[<a href="javascript:void(0);" class="addp">+</a>]图片：<input type="file"
+                                        name="p_pics[]" value="" class="input-xlarge"></div>
+                            </div>
+                    <div class="well">
+                        {foreach $p_imgs as $p}
+                        {if $p.p_small}
+                        <div style="margin: 10px 0;width:100%"><img src="{$p.p_small}" alt=""
+                                style="width:150px"><button pics_id="{$p.id}" pics_type="p" class="btn-danger delete_pics"
+                                style="float:right" type="button">删除</button></div>
+                                {/if}
+                        {/foreach}
+                    </div>
+                    
+               </div>
+               <div class="tab-pane fade in" id="jiao">
+                    <div class="well">
+                            <div>[<a href="javascript:void(0);" class="addj">+</a>]图片：<input type="file"
+                                    name="j_pics[]" value="" class="input-xlarge"></div>
+                        </div>
+                <div class="well">
+                    {foreach $j_imgs as $j}
+                    {if $j.j_small}
+                    <div style="margin: 10px 0;width:100%"><img src="{$j.j_small}" alt=""
+                            style="width:150px"><button pics_id="{$j.id}" pics_type="j" class="btn-danger delete_pics"
+                            style="float:right" type="button">删除</button></div>
+                            {/if}
+                    {/foreach}
+                </div>
+                
+                 </div>
+                 <div class="tab-pane fade in" id="hu">
+                    <div class="well">
+                        <div>[<a href="javascript:void(0);" class="addhu">+</a>]图片：<input type="file"
+                                name="h_pics[]" value="" class="input-xlarge">室厅：<input type="text" name="content[]" value="">     面积:<input type="text" name="mian[]" value=""> 价钱:<input type="text" name="jia[]" value="">
+                                几室:<input type="text" name="ji[]" value=""> 类型:<input type="text" name="lei[]" value="">   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分析:<input type="text" name="fen[]" value="" style="width:800px">
+                            </div>
+                    </div>
+                    <div class="well">
+                        {foreach $h_imgs as $h}
+                        {if $h.h_small}
+                        <div style="margin: 10px 0;width:100%"><img src="{$h.h_small}" alt=""
+                                style="width:150px">
+                                    <input type="hidden" name="bid" value="{$id}">
+                                室厅：<input type="text" name="content[]" value="{$h.content}">     
+                                面积:<input type="text" name="mian[]" value="{$h.mian}">
+                                价钱:<input type="text" name="jia[]" value="{$h.jia}">
+                                几室:<input type="text" name="num[]" value="{$h.ji}"> 类型:<input type="text" name="lei[]" value="{$h.lei}">   <br>分析:<input type="text" name="fen[]" value="{$h.fen}" style="width:800px">
+                                <button pics_id="{$h.id}" id="h" pics_type="h" class="btn-danger delete_pics"
+                                style="float:right" type="button">删除</button></div>
+                                {/if}
+                        {/foreach}
+                    </div>
+                    
+                 </div>
+                 <div class="tab-pane fade in" id="zhu">
+                    <div class="well">
+                        <div>[<a href="javascript:void(0);" class="addz">+</a>]图片：<input type="file"
+                                name="z_pics[]" value="" class="input-xlarge"></div>
+                    </div>
+                    <div class="well">
+                        {foreach $t_imgs as $z}
+                        {if $z.img}
+                        <div style="margin: 10px 0;width:100%"><img src="{$z.img}" alt=""
+                                style="width:150px"><button pics_id="{$z.id}" pics_type="t" class="btn-danger delete_pics"
+                                style="float:right" type="button">删除</button></div>
+                                {/if}
+                        {/foreach}
+                    </div>
+                </div>
+                <div class="tab-pane fade in" id="tu">
+                    <div class="well">
+                        <div>[<a href="javascript:void(0);" class="addt">+</a>]图片：<input type="file"
+                                name="t_pics[]" value="" class="input-xlarge"></div>
+                    </div>
+                    <div class="well">
+                        {foreach $z_imgs as $t}
+                        {if $t.img}
+                        <div style="margin: 10px 0;width:100%"><img src="{$t.img}" alt=""
+                                style="width:150px"><button pics_id="{$t.id}" pics_type="z" class="btn-danger delete_pics"
+                                style="float:right" type="button">删除</button></div>
+                                {/if}
+                        {/foreach}
+                    </div>
+                </div>
+                    <button class="btn btn-primary" type="submit">保存</button>
+                </div>
+    </form>
+
+    <script type="text/javascript">
+        $(function () {
+            $('.addhu').click(function () {
+                var add_div = '<div>[<a href="javascript:void(0);" class="sub">-</a>]楼盘图片：<input type="file" name="h_pics[]" value="" class="input-xlarge">室厅：<input type="text" name="content[]" value="">     面积:<input type="text" name="mian[]" value=""> 价钱:<input type="text" name="jia[]" value=""> 几室:<input type="text" name="ji[]" value=""> 类型:<input type="text" name="lei[]" value="">   <br>分析:<input type="text" name="fen[]" value="" style="width:800px"></div>';
+                $(this).parent().parent().append(add_div);
+            });
+            $('.addj').click(function () {
+                var add_div = '<div>[<a href="javascript:void(0);" class="sub">-</a>]楼盘图片：<input type="file" name="j_pics[]" value="" class="input-xlarge"> </div>';
+                $(this).parent().parent().append(add_div);
+            });
+            $('.addp').click(function () {
+                var add_div = '<div>[<a href="javascript:void(0);" class="sub">-</a>]楼盘图片：<input type="file" name="p_pics[]" value="" class="input-xlarge"> </div>';
+                $(this).parent().parent().append(add_div);
+            });
+            $('.addy').click(function () {
+                var add_div = '<div>[<a href="javascript:void(0);" class="sub">-</a>]楼盘图片：<input type="file" name="y_pics[]" value="" class="input-xlarge"> </div>';
+                $(this).parent().parent().append(add_div);
+            });
+            $('.adds').click(function () {
+                var add_div = '<div>[<a href="javascript:void(0);" class="sub">-</a>]楼盘图片：<input type="file" name="s_pics[]" value="" class="input-xlarge"> </div>';
+                $(this).parent().parent().append(add_div);
+            });
+            $('.addx').click(function () {
+                var add_div = '<div>[<a href="javascript:void(0);" class="sub">-</a>]楼盘图片：<input type="file" name="x_pics[]" value="" class="input-xlarge"> </div>';
+                $(this).parent().parent().append(add_div);
+            });
+            $('.addz').click(function () {
+                var add_div = '<div>[<a href="javascript:void(0);" class="sub">-</a>]楼盘图片：<input type="file" name="z_pics[]" value="" class="input-xlarge"> </div>';
+                $(this).parent().parent().append(add_div);
+            });
+            $('.addt').click(function () {
+                var add_div = '<div>[<a href="javascript:void(0);" class="sub">-</a>]楼盘图片：<input type="file" name="t_pics[]" value="" class="input-xlarge"> </div>';
+                $(this).parent().parent().append(add_div);
+            });
+            $('.sub').live('click', function () { 
+                $(this).parent().remove();
+            });
+            
+            $('.delete_pics').click(function () {
+                var id = $(this).attr('pics_id');
+                var type = $(this).attr('pics_type');
+                var data = {
+                    'id': id,
+                    'type':type
+                }
+                var that = $(this);
+                $.ajax({
+                    'url': "{:url('admin/building/delpics')}",
+                    'type': 'post',
+                    'data': data,
+                    'dataType': 'json',
+                    'success': function (res) {
+                        if (res.code == 10000) {
+                            alert(res.msg);
+                        } else {
+                            that.parent().remove();
+                        }
+                    }
+                })
+            })
+            
+        });
+    </script>

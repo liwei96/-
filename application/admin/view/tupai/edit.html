@@ -1,0 +1,45 @@
+
+<!-- 右 -->
+<div class="content">
+    <div class="header">
+        <h1 class="page-title">土拍信息修改</h1>
+    </div>
+
+    <!-- add form --> 
+    <form action="{:url('update',['id'=>$data.id])}" method="post" id="tab" enctype="multipart/form-data">
+       
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="basic">
+                <div class="well">
+                        <label>地块名称：</label>
+                        <input type="text" name="name" value="{$data.name}" class="input-xlarge">
+                        <label>地块编号：</label>
+                        <input type="text" name="code" value="{$data.code}" class="input-xlarge">
+                        <label>出让面积（㎡）：</label>
+                        <input type="text" name="area" value="{$data.area}" class="input-xlarge">
+                        <label>用途：</label>
+                        <input type="text" name="for" value="{$data.for}" class="input-xlarge">
+                        <label>容积率：</label>
+                        <input type="text" name="rong" value="{$data.rong}" class="input-xlarge">
+                        <label>建筑面积（㎡）：</label>
+                        <input type="text" name="jianmian" value="{$data.jianmian}" class="input-xlarge">
+                        <label>起价（万元）：</label>
+                        <input type="text" name="qijia" value="{$data.qijia}" class="input-xlarge">
+                        <label>楼面起价（元）：</label>
+                        <input type="text" name="loumian" value="{$data.loumian}" class="input-xlarge">
+                        <label>成交价（万元）：</label>
+                        <input type="text" name="chengjiao" value="{$data.chengjiao}" class="input-xlarge">
+                        <label>楼面价（元）：</label>
+                        <input type="text" name="loujia" value="{$data.loujia}" class="input-xlarge">
+                        <label>溢价率：</label>
+                        <input type="text" name="yijia" value="{$data.yijia}" class="input-xlarge">
+                        <label>竞得单位：</label>
+                        <input type="text" name="unit" value="{$data.unit}" class="input-xlarge">
+                </div>
+            </div>
+           
+            <button class="btn btn-primary" type="submit">保存</button>
+        </div>
+    </form>
+
+    

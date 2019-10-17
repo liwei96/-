@@ -1,0 +1,45 @@
+
+<!-- 右 -->
+<div class="content">
+    <div class="header">
+        <h1 class="page-title">土拍信息新增</h1>
+    </div>
+
+    <!-- add form --> 
+    <form action="{:url('save')}" method="post" id="tab" enctype="multipart/form-data">
+       
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="basic">
+                <div class="well">
+                        <label>地块名称：</label>
+                        <input type="text" name="name" value="" class="input-xlarge">
+                        <label>地块编号：</label>
+                        <input type="text" name="code" value="" class="input-xlarge">
+                        <label>出让面积（㎡）：</label>
+                        <input type="text" name="area" value="" class="input-xlarge">
+                        <label>用途：</label>
+                        <input type="text" name="for" value="" class="input-xlarge">
+                        <label>容积率：</label>
+                        <input type="text" name="rong" value="" class="input-xlarge">
+                        <label>建筑面积（㎡）：</label>
+                        <input type="text" name="jianmian" value="" class="input-xlarge">
+                        <label>起价（万元）：</label>
+                        <input type="text" name="qijia" value="" class="input-xlarge">
+                        <label>楼面起价（元）：</label>
+                        <input type="text" name="loumian" value="" class="input-xlarge">
+                        <label>成交价（万元）：</label>
+                        <input type="text" name="chengjiao" value="" class="input-xlarge">
+                        <label>楼面价（元）：</label>
+                        <input type="text" name="loujia" value="" class="input-xlarge">
+                        <label>溢价率：</label>
+                        <input type="text" name="yijia" value="" class="input-xlarge">
+                        <label>竞得单位：</label>
+                        <input type="text" name="unit" value="" class="input-xlarge">
+                </div>
+            </div>
+           
+            <button class="btn btn-primary" type="submit">保存</button>
+        </div>
+    </form>
+
+    

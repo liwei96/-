@@ -1,0 +1,31 @@
+<style>
+    .well{
+        position:relative;
+    }
+    .btn{
+        position: absolute;
+        top:50px;
+        right:210px;
+    }
+</style> 
+
+
+<!-- 右 -->
+<div class="content">
+    <div class="header">
+        <h1 class="page-title">楼盘列表</h1>
+    </div>
+
+    <div class="well">
+        <!-- search button -->
+        <form action="{:url('admin/news/save')}" method="post" class="form-search" enctype="multipart/form-data">
+            <label>楼盘简介：</label>
+            <input type="hidden" name="bid" value="{$id}">
+            <textarea name="introduce" style="width:800px;height:100px;" class="input-xlarge"></textarea>
+            <input type="file" name="dong" value="" class="input-xlarge">
+            <button type="submit" class="btn">提交</button>
+        </form>
+    </div>
+   <script>
+       
+   </script>

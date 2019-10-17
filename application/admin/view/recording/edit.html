@@ -1,0 +1,27 @@
+
+
+
+<!-- 右 -->
+<div class="content">
+    <div class="header">
+        <h1 class="page-title">修改楼盘成交情况</h1>
+    </div>
+    <form action="{:url('admin/recording/update',['id'=>$data.id])}" method="post">
+    <div class="well">
+        <label>楼盘：</label>
+        <input type="text" name="" value="{$name[0]}" class="input-xlarge">
+        <label>成交日期：</label>
+        <input type="text" name="create_time" value="{$data.create_time}" class="input-xlarge">
+        <label>新增日期：</label>
+        <input type="text" name="" value="{$data.update_time}" class="input-xlarge" disabled>
+        <label>成交套数：</label>
+        <input type="text" name="taoshu" value="{$data.taoshu}" class="input-xlarge">
+        <label>成交面积：</label>
+        <input type="text" name="zongji" value="{$data.zongji}" class="input-xlarge">
+        <label>成交均价：</label>
+        <input type="text" name="danjia" value="{$data.danjia}" class="input-xlarge">
+        <label>成交总价：</label>
+        <input type="text" name="" value="{$data.zongjia}" class="input-xlarge" disabled>
+    </div>
+    <button type="submit" class="btn">提交</button>
+</form>

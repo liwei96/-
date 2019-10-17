@@ -1,0 +1,40 @@
+<script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+<!-- 右 -->
+<div class="content">
+    <div class="header">
+        <h1 class="page-title">资讯修改</h1>
+    </div>
+
+    <!-- add form -->
+    <form action="{:url('update',['id'=>$data.id])}" method="post" id="tab" enctype="multipart/form-data">
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="basic">
+                <div class="well">
+                        <label>新闻标题：</label>
+                        <input type="text" name="title" value="{$data.title}" class="input-xlarge">
+                        <label>所属楼盘：</label>
+                        <select name="bid" id="">
+                            {foreach $loupan as $v}
+                            <option value="{$v.id}" {if $data.bid==$v.id}selected{/if}>{$v.building_name}</option>
+                            {/foreach}
+                        </select>
+                        <label>录入人员：</label>
+                        <input type="text" name="people" value="{$data.people}" class="input-xlarge">
+                        <label>新闻内容：</label>
+                        <textarea id="editor" name="content" style="width:800px;height:500px;" class="input-xlarge">{$data.content}</textarea>
+                </div>
+            </div>
+           
+            <button class="btn btn-primary" type="submit">保存</button>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        $(function () {
+            UE.getEditor('editor');
+            
+        });
+    </script>

@@ -1,0 +1,39 @@
+
+<!-- 右 -->
+<div class="content">
+    <div class="header">
+        <h1 class="page-title">土拍信息新增</h1>
+    </div>
+
+    <!-- add form --> 
+    <form action="{:url('update',['id'=>$data.id])}" method="post" id="tab" enctype="multipart/form-data">
+       
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="basic">
+                <div class="well">
+                        <label>楼盘名称：</label>
+                        <input type="text" name="name" value="{$data.name}" class="input-xlarge">
+                        <label>预售证号：</label>
+                        <input type="text" name="code" value="{$data.code}" class="input-xlarge">
+                        <label>核发日期：</label>
+                        <input type="date" name="time" value="{$data.time}" class="input-xlarge">
+                        <label>幢号：</label>
+                        <input type="text" name="zhuanghao" value="{$data.zhuanghao}" class="input-xlarge">
+                        <label>可售套数：</label>
+                        <input type="text" name="taoshu" value="{$data.taoshu}" class="input-xlarge">
+                        <label>户面积：</label>
+                        <input type="text" name="humianji" value="{$data.humianji}" class="input-xlarge">
+                        <label>类型：</label>
+                        <input type="text" name="type" value="{$data.type}" class="input-xlarge">
+                        <label>均价：</label>
+                        <input type="text" name="junjia" value="{$data.junjia}" class="input-xlarge">
+                        <label>楼盘地址：</label>
+                        <input type="text" name="address" value="{$data.address}" class="input-xlarge">
+                </div>
+            </div>
+           
+            <button class="btn btn-primary" type="submit">保存</button>
+        </div>
+    </form>
+
+    
